@@ -48,7 +48,12 @@ public class Game {
         for(Player player:this.players){
             if(player.handTotal() > highest){
                 highest = player.handTotal();
-                winner = player;
+//                if(player.handTotal() > 21){
+//                    System.out.println();
+//                }else {
+                    winner = player;
+//                }
+
             }
         }
         return winner;
@@ -63,6 +68,11 @@ public class Game {
 
     }
 
-
+    public void invalidEntry(Player activePlayer, String entry){
+        if((!entry.equals("TWIST")) || (!entry.equals("STICK"))) { //this logic is already done within the runner but is needed for test purposes
+            System.out.println("Invalid entry! User entered: " + entry);
+            activePlayer.clearHand();
+        }
+    }
 
 }

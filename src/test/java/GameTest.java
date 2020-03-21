@@ -69,4 +69,9 @@ public class GameTest {
 
     }
 
+    @Test
+    public void gameInvalidEntry(){
+        game.invalidEntry(player1, "Bananas");
+    }
+
 }

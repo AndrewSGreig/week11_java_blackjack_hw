@@ -42,6 +42,10 @@ public class Player {
         return blackjack;
     }
 
+    public void clearHand(){
+        this.hand.clear();
+    }
+
 
 
 

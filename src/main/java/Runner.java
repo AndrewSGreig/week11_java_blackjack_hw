@@ -55,7 +55,8 @@ public class Runner {
                 System.out.println(String.format("%s player has selected STICK", player.getName()));
             }else{
                 //INVALID ENTRY
-                System.out.println("Invalid entry!");
+                game.invalidEntry(player, playerShot);
+
                 System.out.println("You pillock, you can't follow simple instructions!");
                 System.out.println("Now you cannot win this game!");
             }
