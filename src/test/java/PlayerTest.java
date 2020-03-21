@@ -34,7 +34,7 @@ public class PlayerTest {
     @Test
     public void playerHasHandTotal(){
         player.takeCard(card);
-        assertEquals(1, player.handTotal());
+        assertEquals(11, player.handTotal());
     }
 
     @Test

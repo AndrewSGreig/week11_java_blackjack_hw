@@ -64,11 +64,9 @@ public class GameTest {
     public void gameCanAllowPlayerToTwist(){
         player1.takeCard(highCard);
         player1.takeCard(highCard);
-        /////
         game.twist(player1);
-        //check player can twist
-        // display on runner
-//        sdsgsdgjascbvausfuf
+        assertEquals(3,player1.cardCount());
+
     }
 
 }

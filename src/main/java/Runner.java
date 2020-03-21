@@ -47,19 +47,17 @@ public class Runner {
             String playerShot = scanner.next();
             playerShot = playerShot.toUpperCase();
             if(playerShot.equals("TWIST")){
-//                DRAW A NEW CARD
-//                AND ADD IT TO THE PLAYERS HAND
-//                Card card = deck.dealOne();
-//                player.takeCard(card);
-//                System.out.println(card.cardName());
                 game.twist(player);
+                System.out.println(String.format("Hand total: %s", player.handTotal()));
                 System.out.println("draw a new card and add it to players hand");
             }else if (playerShot.equals("STICK")){
                 //// Progress To next player
-                System.out.println("Progress to the next player");
+                System.out.println(String.format("%s player has selected STICK", player.getName()));
             }else{
                 //INVALID ENTRY
-                System.out.println("Invalid Entry");
+                System.out.println("Invalid entry!");
+                System.out.println("You pillock, you can't follow simple instructions!");
+                System.out.println("Now you cannot win this game!");
             }
 
 

@@ -57,7 +57,9 @@ public class Game {
     public void twist(Player activePlayer){
         Card card = deck.dealOne();
         activePlayer.takeCard(card);
-        System.out.println(card.cardName());
+        for (int i = 0; i < activePlayer.cardCount(); i++){
+            System.out.println(activePlayer.showCard(i));
+        }
 
     }
 
