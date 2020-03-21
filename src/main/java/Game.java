@@ -49,12 +49,11 @@ public class Game {
             if(player.handTotal() > highest){
 
                 if(player.handTotal() > 21){
-                    System.out.println(player + "BUST");
+                    System.out.println(player.getName() + " is BUST");
                 }else {
                     highest = player.handTotal();
                     winner = player;
                 }
-
             }
         }
         return winner;
@@ -65,6 +64,25 @@ public class Game {
         activePlayer.takeCard(card);
         for (int i = 0; i < activePlayer.cardCount(); i++){
             System.out.println(activePlayer.showCard(i));
+        }
+
+    }
+
+
+    public void gameShotSelection(Player player, String playerShot) {
+        if(playerShot.equals("TWIST")){
+            this.twist(player);
+            System.out.println(String.format("Hand total: %s", player.handTotal()));
+            System.out.println("draw a new card and add it to players hand");
+        }else if (playerShot.equals("STICK")){
+            //// Progress To next player
+            System.out.println(String.format("%s player has selected STICK", player.getName()));
+        }else{
+            //INVALID ENTRY
+            this.invalidEntry(player, playerShot);
+
+            System.out.println("You pillock, you can't follow simple instructions!");
+            System.out.println("Now you cannot win this game!");
         }
 
     }

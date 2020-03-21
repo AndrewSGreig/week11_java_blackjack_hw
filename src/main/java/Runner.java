@@ -46,22 +46,7 @@ public class Runner {
             System.out.println(player.getName() + " 'STICK' or 'TWIST'?");
             String playerShot = scanner.next();
             playerShot = playerShot.toUpperCase();
-            if(playerShot.equals("TWIST")){
-                game.twist(player);
-                System.out.println(String.format("Hand total: %s", player.handTotal()));
-                System.out.println("draw a new card and add it to players hand");
-            }else if (playerShot.equals("STICK")){
-                //// Progress To next player
-                System.out.println(String.format("%s player has selected STICK", player.getName()));
-            }else{
-                //INVALID ENTRY
-                game.invalidEntry(player, playerShot);
-
-                System.out.println("You pillock, you can't follow simple instructions!");
-                System.out.println("Now you cannot win this game!");
-            }
-
-
+            game.gameShotSelection(player, playerShot);
         }
 
 

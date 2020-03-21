@@ -1,8 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class GameTest {
 
@@ -66,13 +65,32 @@ public class GameTest {
         player1.takeCard(highCard);
         game.twist(player1);
         assertEquals(3,player1.cardCount());
-
     }
 
     @Test
     public void gamePicksUpOnInvalidEntry(){
         game.invalidEntry(player1, "Bananas");
         assertEquals(0,player1.cardCount());
+    }
+
+    @Test
+    public void gameInformsWhenPlayerIsBust(){
+        player1.takeCard(highCard);
+        player1.takeCard(highCard);
+        player1.takeCard(highCard);
+        player1.takeCard(highCard);
+
+        assertNotEquals("player1", game.checkWinner());
+    }
+
+    @Test
+    public void testGameShotSelection(){
+        player1.takeCard(lowCard);
+         game.gameShotSelection(player1, "TWIST");
+         assertEquals(2, player1.cardCount());
+         player2.takeCard(lowCard);
+         game.gameShotSelection(player2,"STICK");
+         assertEquals(1,player2.cardCount());
     }
 
 }
