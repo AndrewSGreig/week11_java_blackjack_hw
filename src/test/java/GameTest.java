@@ -70,8 +70,9 @@ public class GameTest {
     }
 
     @Test
-    public void gameInvalidEntry(){
+    public void gamePicksUpOnInvalidEntry(){
         game.invalidEntry(player1, "Bananas");
+        assertEquals(0,player1.cardCount());
     }
 
 }
