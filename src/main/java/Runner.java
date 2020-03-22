@@ -19,9 +19,15 @@ public class Runner {
 //        int players = parseInt(input);
         int players = 2;
         for(int i = 0; i < players; i++){
-            String prompt = String.format("Player %s, enter your name: ", (i + 1));
-            System.out.println(prompt);
-            String playerName = scanner.next();
+            String playerName;
+            if (i == 1){
+                playerName = "Dealer";
+            }else{
+                String prompt = String.format("Player %s, enter your name: ", (i + 1));
+                System.out.println(prompt);
+                playerName = scanner.next();
+            }
+
             Player player = new Player(playerName);
             game.addPlayer(player);
         }
@@ -38,15 +44,28 @@ public class Runner {
                 System.out.println(player.showCard(i));
             }
             System.out.println(String.format("Hand total: %s", player.handTotal()));
-            if (player.checkForBlackjack(player.cardCount())) {
+            if (player.checkForBlackjack(player.handTotal())) {
                 System.out.println(player.getName() + " HAS BLACKJACK AND WINS THE GAME!!!!!");
             }else{
                 System.out.println(player.getName() + " HAS NOT GOT BLACKJACK");
             }
-            System.out.println(player.getName() + " 'STICK' or 'TWIST'?");
-            String playerShot = scanner.next();
-            playerShot = playerShot.toUpperCase();
-            game.gameShotSelection(player, playerShot);
+
+            String playerShot = null;
+            int shotCount = 0;
+//            while ((playerShot != "STICK") || (shotCount >= 10)) {
+                shotCount ++;
+                if (player.getName().equals("Dealer") && player.handTotal() < 16) {
+                    System.out.println("You are the DEALER and must TWIST under 16");
+                    System.out.println(player.getName() + " your option is 'TWIST'");
+                } else {
+                    System.out.println(player.getName() + " your options are 'STICK' or 'TWIST'?");
+                }
+
+                playerShot = scanner.next();
+                playerShot = playerShot.toUpperCase();
+                game.gameShotSelection(player, playerShot);
+//            }
+
         }
 
 

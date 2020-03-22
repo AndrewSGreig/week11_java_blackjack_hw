@@ -68,6 +68,16 @@ public class GameTest {
     }
 
     @Test
+    public void gameCanAllowForMultipleTwists(){
+        player1.takeCard(lowCard);
+        player1.takeCard(lowCard);
+        game.twist(player1);
+        game.twist(player1);
+        game.twist(player1);
+        game.twist(player1);
+    }
+
+    @Test
     public void gamePicksUpOnInvalidEntry(){
         game.invalidEntry(player1, "Bananas");
         assertEquals(0,player1.cardCount());

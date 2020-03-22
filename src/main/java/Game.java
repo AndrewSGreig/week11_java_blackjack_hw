@@ -74,6 +74,7 @@ public class Game {
             this.twist(player);
             System.out.println(String.format("Hand total: %s", player.handTotal()));
             System.out.println("draw a new card and add it to players hand");
+
         }else if (playerShot.equals("STICK")){
             //// Progress To next player
             System.out.println(String.format("%s player has selected STICK", player.getName()));
@@ -84,7 +85,6 @@ public class Game {
             System.out.println("You pillock, you can't follow simple instructions!");
             System.out.println("Now you cannot win this game!");
         }
-
     }
 
     public void invalidEntry(Player activePlayer, String entry){
