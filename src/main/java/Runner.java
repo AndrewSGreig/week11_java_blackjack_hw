@@ -50,10 +50,10 @@ public class Runner {
                 System.out.println(player.getName() + " HAS NOT GOT BLACKJACK");
             }
 
-            String playerShot = null;
+            String playerShot = "";
             int shotCount = 0;
-//            while ((playerShot != "STICK") || (shotCount >= 10)) {
-                shotCount ++;
+            while (!playerShot.equals("STICK") || (shotCount >= 10)){
+                shotCount = shotCount+1;
                 if (player.getName().equals("Dealer") && player.handTotal() < 16) {
                     System.out.println("You are the DEALER and must TWIST under 16");
                     System.out.println(player.getName() + " your option is 'TWIST'");
@@ -64,7 +64,7 @@ public class Runner {
                 playerShot = scanner.next();
                 playerShot = playerShot.toUpperCase();
                 game.gameShotSelection(player, playerShot);
-//            }
+            }
 
         }
 
